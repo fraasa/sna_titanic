@@ -9,4 +9,4 @@ To further analyze the graph, we needed to determine some fundamental graph prop
 
 One of the metrics we computed was the average degree which is computed using the formula 2E/N, where 'E' represents the total number of edges and 'N' is the number of nodes in the graph. Additionally, we looked into the graph density, which provides insights into the overall connectivity of the graph. The formula for graph density is D = 2E / (N * (N-1)), where 'D' represents the graph density, 'E' is the total number of edges, and 'N' is the number of nodes.
 
-By calculating these metrics, we gained a deeper understanding of the relationships and interactions among the characters in our dataset.
+By calculating these metrics, we gained a deeper understanding of the relationships and interactions among the characters in our dataset.t 
