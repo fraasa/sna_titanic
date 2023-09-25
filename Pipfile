@@ -7,8 +7,6 @@ name = "pypi"
 networkx = "*"
 matplotlib = "*"
 numpy = "*"
-
-[dev-packages]
 ipykernel = "*"
 
 [requires]
