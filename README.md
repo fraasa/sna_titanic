@@ -1,12 +1,24 @@
-# Social network analysis project
-## Titanic graph
-The main aim of this 
+# Social Network Analysis (SNA) Project: Exploring the Titanic Dataset
 
-Doc Week 1
-As part of this week's tasks, our initial step involved creating a visual representation of a graph. In this graph, each character in our dataset was denoted as a distinct node, and the thickness of the edges connecting them was indicative of the frequency of scenes in which these characters shared screen time.
+## Project Overview
 
-To further analyze the graph, we needed to determine some fundamental graph properties. Firstly, we set out to calculate the total number of nodes and edges within the graph.
+Welcome to the repository of our Social Network Analysis (SNA) project, where we delve into exploring the intricate web of relationships and interactions among characters from the Titanic dataset. Throughout the course weeks, we aim to not only visually represent these connections but also analyze them through various graph metrics.
 
-One of the metrics we computed was the average degree which is computed using the formula 2E/N, where 'E' represents the total number of edges and 'N' is the number of nodes in the graph. Additionally, we looked into the graph density, which provides insights into the overall connectivity of the graph. The formula for graph density is D = 2E / (N * (N-1)), where 'D' represents the graph density, 'E' is the total number of edges, and 'N' is the number of nodes.
+## Week 1: Introduction to Graph Creation and Basic Analysis
 
-By calculating these metrics, we gained a deeper understanding of the relationships and interactions among the characters in our dataset.t 
+### Objective
+The primary objective this week was to construct a visual representation of a graph, representing the relationships and interactions among the characters in the Titanic dataset.
+
+### Graph Construction
+In our graphical representation:
+- **Nodes**: Represent individual characters from the dataset.
+- **Edges**: Indicate relationships between characters, where the thickness of an edge signifies the frequency of scenes shared by the connected characters.
+
+### Graph Analysis
+We further analyzed the graph by determining some fundamental properties:
+- **Total Number of Nodes and Edges**: To understand the scale and complexity of the graph.
+- **Average Degree**: Computed using the formula \(\frac{2E}{N}\), where \(E\) represents the total number of edges and \(N\) is the number of nodes in the graph. This metric gives an average indication of the number of connections per node.
+- **Graph Density**: Calculated using the formula \(D = \frac{2E}{N \times (N-1)}\), where \(D\) represents the graph density, \(E\) is the total number of edges, and \(N\) is the number of nodes. This metric provides insights into the overall connectivity of the graph.
+
+### Insights Gained
+By calculating these metrics, we were able to deepen our understanding of the relationships and interactions among the characters in our dataset, providing a foundational knowledge that will be expanded upon in the subsequent weeks.
