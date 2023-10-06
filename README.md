@@ -4,6 +4,18 @@
 
 Welcome to the repository of our Social Network Analysis (SNA) project, where we delve into exploring the intricate web of relationships and interactions among characters from the Titanic dataset. Throughout the course weeks, we aim to not only visually represent these connections but also analyze them through various graph metrics.
 
+da modificare però non male: *Title: Unveiling Titanic's Social Fabric: A Network Analysis*
+
+*Introduction:*
+
+Meet the minds behind the exploration of Titanic's intricate social network — Alexandra Tabarani, Marta Torella, Francesca Romana Sanna, Sofia Bruni, and Leonardo Azzi. As a collaborative force, we embark on a captivating journey into the dynamic relationships woven throughout the iconic Titanic voyage.
+
+In our Social Network Analysis (SNA) project, the characters aboard the Titanic take center stage as nodes, while the edges connecting them represent shared scenes, their weights reflecting the frequency of these shared appearances. This analytical approach allows us to decode the complex web of interactions that shaped the destinies of the ship's inhabitants.
+
+Our venture delves beyond the iceberg collision, focusing on the invisible ties binding passengers from various walks of life. Through meticulous examination, we aim to uncover not only the pivotal characters but also the subtle patterns of connection that underscore the narrative.
+
+Join us as we navigate the Titanic's social fabric, utilizing data-driven insights to unveil the interconnected lives aboard this legendary vessel. In this concise exploration, spanning opulent upper decks to humble quarters below, we invite you to witness the stories etched within the social tapestry of the Titanic — a microcosm reflecting the dynamics of a bygone era
+
 ## Week 1: Introduction to Graph Creation and Basic Analysis
 
 ### Objective
