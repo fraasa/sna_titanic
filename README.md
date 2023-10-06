@@ -34,3 +34,8 @@ We further analyzed the graph by determining some fundamental properties:
 
 ### Insights Gained
 By calculating these metrics, we were able to deepen our understanding of the relationships and interactions among the characters in our dataset, providing a foundational knowledge that will be expanded upon in the subsequent weeks.
+
+## Week 2: Average Clustering and Transitivity
+
+### Objective
+This week objective was to exploit some centrality measures (Average Clustering and Transitivity) in order to better analyze the network's structural characteristics by 
