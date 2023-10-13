@@ -38,4 +38,10 @@ By calculating these metrics, we were able to deepen our understanding of the re
 ## Week 2: Average Clustering and Transitivity
 
 ### Objective
-This week objective was to exploit some centrality measures (Average Clustering and Transitivity) in order to better analyze the network's structural characteristics by 
+This week objective was to exploit some centrality measures (Average Clustering and Transitivity) in order to better analyze the network's structural characteristics by identifying the key nodes. 
+
+### Average Clustering and Transitivity
+As a first step we implemented the Average Clustering and the Transitivity by using the respective built-in functions in Networkx.
+-**Average Clustering**: the average of the clustering coefficients. Each clustering coefficient is computed as the ratio of the number of triangles in which the node we are considering (let's say node i) participates, over the number of wedges of that same node (computed as [ki(ki-1/2)], where ki is the degree of node i ). 
+-**Transitivity**:
+
