@@ -48,5 +48,7 @@ As a first step we implemented the Average Clustering and the Transitivity by us
 ### Compute_Transitivity Implementation
 In the second part of this week task, we had to implement from scratch our transitivity function. Our function starts by manually counting the number of triangles in the network by iterating over each node in the graph; by doing so, it finds the neighbours of each node and registers the common ones between one node and its neighbors (which indicates the number of triangles involving the current node). Then the 'triangles' variable, in which the number of triangles in the graph were stored, is divided by 6, since each triangle was originally counted six times( two times for each node of the traingles). Once we obtained the total number of triangles, we start looking for the wedges (or connected triplets) by iterating again through each node in the graph in order to identify again its neighbours and degree so that we could apply the mathematical formula for the number of wedges [ki(ki-1/2)]. The final step of our code computes the Transitivity number as the  number of triangles multiplied by three over the sum of all number of wedges.
 
+## Week 3: Closenness Centrality
 
-
+### Objective
+This week we were required to pick one among the 
