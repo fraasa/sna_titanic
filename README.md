@@ -35,13 +35,18 @@ We further analyzed the graph by determining some fundamental properties:
 ### Insights Gained
 By calculating these metrics, we were able to deepen our understanding of the relationships and interactions among the characters in our dataset, providing a foundational knowledge that will be expanded upon in the subsequent weeks.
 
-## Week 2: Average Clustering and Transitivity
+## Week 2: Average Clustering and Transitivity number
 
 ### Objective
 This week objective was to exploit some centrality measures (Average Clustering and Transitivity) in order to better analyze the network's structural characteristics by identifying the key nodes. 
 
-### Average Clustering and Transitivity
-As a first step we implemented the Average Clustering and the Transitivity by using the respective built-in functions in Networkx.
+### Average Clustering and Transitivity number with Networkx
+As a first step we implemented the Average Clustering and the Transitivity by using the respective built-in functions in Networkx; both metrics were used to understand the interconnectedness among nodes in our network.
 -**Average Clustering**: the average of the clustering coefficients. Each clustering coefficient is computed as the ratio of the number of triangles in which the node we are considering (let's say node i) participates, over the number of wedges of that same node (computed as [ki(ki-1/2)], where ki is the degree of node i ). 
--**Transitivity**:
+-**Transitivity**: defined as the ratio between the total number of triangles in the network, over the number of wedges divided by three. The mathematical formula related to transitivity could also be expressed as the number of triangles multiplied by three over the sum of all clustering coefficients.
+
+### Compute_Transitivity Implementation
+In the second part of this week task, we had to implement from scratch our transitivity function. Our function starts by manually counting the number of triangles in the network by iterating over each node in the graph; by doing so, it finds the neighbours of each node and registers the common ones between one node and its neighbors (which indicates the number of triangles involving the current node). Then the 'triangles' variable, in which the number of triangles in the graph were stored, is divided by 6, since each triangle was originally counted six times( two times for each node of the traingles). Once we obtained the total number of triangles, we start looking for the wedges (or connected triplets) by iterating again through each node in the graph in order to identify again its neighbours and degree so that we could apply the mathematical formula for the number of wedges [ki(ki-1/2)]. The final step of our code computes the Transitivity number as the 
+
+
 
