@@ -52,12 +52,12 @@ In the second part of this week task, we had to implement from scratch our trans
 ## Week 3: Closenness Centrality
 
 ### Objective
-this week objective was to choose a centrality measure to identify the most central node in the network. subsequently, we had to plot the cumulative distribution of these centrality values on a graph. 
+This week objective was to choose a centrality measure to identify the most central node in the network. subsequently, we had to plot the cumulative distribution of these centrality values on a graph. 
 
 ### Closeness centrality 
-the first part involved the choice of a centrality measure, and we decided for closeness centrality. In our graph, this metric appeared particularly pertinent as it provides insights into how proximate a node (representing a character in this context) is to all other nodes in the network. This proximity indicates the centrality of these characters in the unfolding narrative. Such characters are presumed to play crucial roles as they are intricately connected to multiple storylines or engage with various groups of characters, thereby emerging as pivotal figures in the storyline.
-the function iterates through each node to compute the shortest path lengths from that node to all the others, considering edge weights if specified. the closeness centrality for each node is then determined as the reciprocal of the sum of all these shortest path lengths, multiplied by the total number of nodes minus 1 (N-1).
+The first part involved the choice of a centrality measure, and we decided for closeness centrality. In our graph, this metric appeared particularly pertinent as it provides insights into how proximate a node (representing a character in this context) is to all other nodes in the network. This proximity indicates the centrality of these characters in the unfolding narrative. Such characters are presumed to play crucial roles as they are intricately connected to multiple storylines or engaged with various groups of characters, thereby emerging as pivotal figures in the storyline.
+The function iterates through each node to compute the shortest path lengths from that node to all the others, considering edge weights if specified. The closeness centrality for each node is then determined as the reciprocal of the sum of all these shortest path lengths, multiplied by the total number of nodes minus 1 (N-1).
 
 ### cumulative distribution function 
-in the second part of this week we had to implement a function to plot the cumulative distribution of closeness centrality. the function is created by dividing the range of sorted valued by the total number of values. the code then loads the graph and visualizes it, highlighting the top 5 character with the highest closeness centrality, showcasing them in red on the graph. 
+In the second part of this week we had to implement a function to plot the cumulative distribution of closeness centrality. the function is created by dividing the range of sorted valued by the total number of values. The code then loads the graph and visualizes it, highlighting the top 5 characters with the highest closeness centrality, showcasing them in red on the graph. 
 
