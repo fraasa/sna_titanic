@@ -73,3 +73,62 @@ In the second part of this week, we had to provide a cumulative distribution and
 This type of plot is useful for visualizing the distribution of PageRank values across the graph, showing whether they are concentrated among a few nodes or more evenly distributed.
 Afterwards, we computed the PageRank using the function *calculate_pagerank* using the graph G as argument. The *plot_cumulative_distribution* function is called with the PageRank values and the title 'PageRank' to create and display the cumulative distribution plot.
 This algorithm allows us to visualize and understand the importance of nodes within a network, such as who are the most influential or well-connected individuals in a social network. The visualizations make it easier to interpret the data and can provide insights into the structure and dynamics of the network.
+
+## Week 6: 
+
+## Week 7: Link Prediction
+## Objective
+This week oblective is to calculate different **topological similarity indices**, returning a frame where **each row**  is a **missing link** and **each column** is an **index**. Once similarity indices are computed, we have to **synthesize them properly** to obtain the **link likelihood scores**. We have to **calculate a score**, using an **aggregation function**, the **arithmetic mean** between the **two indices**, as another parameter of evaluation. This **value** obtained will be **added** through a third **column** in teh pandaframe. For **each of the 3 scores**, we will **identify** as **missing links** the **node pairs** yielding the **largest 5 values**. the **top 5 ones** are **identified as the predicted links**.
+
+## *Transformation of the graph: undirected and unweighted without self loops*
+We, first of all, **loaded both nodes and edges**, beside the graph, and we used a function to **convert** the **directed graph 'G'** to an **undirected graph 'U'**. Then, we used a function which **removes edges** that **connect a node to itself** (self-loops) from the undirected graph U. 
+Moeover, we have **analyzed** the **Largest Connected Component** (LCC): firstly, we found it. Then we **created** a **subgraph LCC** containing **only the nodes** in the **largest connected component**, printing them. 
+
+## Understanding the code
+This type of function, is used specifically for **examining the structure and connections** within a graph represented by nodes and edges,  it's particularly focused on how nodes (characters) are interconnected through edges (relationships) in a network. The **focus** is on the **largest connected component** of the graph, which can be **critical** in **understanding the cohesion or segmentation** of the network.
+
+## *Calculating the topologiacal indices*
+We start by creating an **empty undirected graph** called **'G'**, loading then **all edges and nodes**. Therefore, we have **computed** two network **topological indices**, **Common Neighbors** (CN) and **Preferential Attachment** (PA), for **all non-existing edges** (potential future links) in a the graph, let's get in detail. After **identifying Non-Edges**, meaning all **pairs of nodes** in the graph that are **not connected by an edge**, we have calculated **CN**: for **each pair of non-connected nodes**, we calculated the **number of common neighbors** they share. This is a **measure of how many mutual connections two nodes have**, which can be extremely **important** to **indicate** the **likelihood of them forming** a possible **connection in the future**.
+Afterwards, we calculated **PA**: for **each pair of non-connected nodes**, we obtained the **product** of their **degrees** (meaning the **number of connections** they have). This index is **based on the idea** that **nodes with higher degrees** are **more likely to form new connections**.
+Fianlly, we created the **DataFrame** in order to **organize** the **CN and PA values** into a pandas DataFrame for **easier analysis and visualization**.
+
+## Understanding the code
+### Insights and Interpretations
+- *Focusing on LCC*: Analyzing the largest connected component can be particularly insightful, as it represents the most interconnected part of the network, often containing crucial information about the network's structure.
+
+- *Common Neighbors (CN)*: High CN values suggest that two nodes are part of tightly-knit communities, increasing the likelihood of a future link.
+
+- *Preferential Attachment (PA)*: This concept, often related to the "rich-get-richer" phenomenon, suggests that nodes with many connections are more likely to acquire even more connections.
+
+- *Predictive Analysis*: Both CN and PA are used in predicting the formation of future links in a network, which is a significant aspect of social network analysis, recommendation systems, and understanding network dynamics.
+
+## *Computing the likelihood score: arithmetic mean*
+The **rescal function** has the **purpose to rescale** a **pandas Series** to a **range of 0 to 1**, while the **min and max** functions help us to **identify** those values in the **series** and **returns the rescaled series** where **each value is transformed** to **fall within the range [0, 1]**. This is **done by subtracting** the **minimum value from each element** and **dividing** by the **range (max - min)**. 
+After that, our **goal** is to **add** a **new column** with the **mean** for each **index**. We applied the **rescale function** to the **'CN' and 'PA'** columns in the DataFrame, **creating two new columns**: 'CN_scaled' and 'PA_scaled'. Finally, the **mean of the scaled values** ('CN_scaled' and 'PA_scaled') for each row is **calculated and added** this as a **new column 'Mean_CN_PA'** in the DataFrame.
+Now, we **applied** those **functions** to the **graph**, in particular the largest connected component (LCC) is extracted. Then, the **'compute_CN_PA' function** is used to **calculate Common Neighbors and Preferential Attachment scores** for the LCC and the **'add_mean_column' function** is **applied to the DataFrame** containing CN and PA metrics. This **adds a new column representing** the **mean of the rescaled CN and PA values**.
+
+## Understanding the code
+### Insights and Interpretations
+- *Rescaling*: Rescaling the 'CN' and 'PA' values to a 0-1 range normalizes these metrics, making them directly comparable regardless of their original scales or distributions. This is particularly useful when these metrics vary widely in scale or when combining them.
+
+- *Mean of Scaled Values* : Computing the mean of 'CN_scaled' and 'PA_scaled' provides a single metric that balances the influence of both CN and PA. This can be useful for analyzing potential connections in the network by considering both the likelihood of connection (suggested by CN) and the network influence (indicated by PA).
+
+This approach is beneficial in network analysis, especially in predictive modeling where a single, balanced metric might be more effective than using multiple metrics separately. For example, this combined metric could help identify potential new connections or influential nodes.
+
+## *Finding top missing links*
+We initialized a **'find_top_missing_links'** which **aim** is to **find the top 5 pairs of nodes** (potential missing links) in a DataFrame based on specified indices. First of all, we **created** an **empty dictionary** to **store** the **top missing links for each index**, this is done by **iterating** over the provided **list of indices**. Then it **sorts** and **select Top Links**: it is**sorted in descending order** based on the **current index and selects the top 5 rows**. This **sorting implies** that the **function is looking** for the **highest scores in each index**. It **extracts the node pairs** from the **'Node1' and 'Node2' columns** of the sorted DataFrame and **stores them** in the dictionary **under the corresponding index**.
+nNow we **applied** teh **function in th graph**, providing it with the **list of indices** (e.g., 'CN', 'PA', 'Mean_CN_PA') to **look for top missing links**. Finally, we **identify** the **top 5 missing links** of our graph, by **calling the function** with the DataFrame and the list of indices. This step identifies the top 5 potential missing links in the network based on each index.
+
+## Understanding the code
+### Insights and Interpretations
+- *Network Link Prediction*: The function is designed for link prediction in networks, a key task in network analysis. It identifies pairs of nodes that, based on certain metrics, are most likely to form a link.
+
+-*Multiple Metrics for Prediction*: By using different indices (CN, PA, Mean_CN_PA), the function offers a multifaceted view of potential connections. Each index provides a different perspective:
+
+- *CN (Common Neighbors)*: Suggests that nodes with many mutual connections are more likely to connect.
+PA (Preferential Attachment): Implies that nodes with high degrees (many connections) are more likely to form new connections.
+
+- *Mean_CN_PA*: A balanced metric combining both CN and PA perspectives.
+Top Candidates for New Links: The top 5 pairs for each metric represent the most promising candidates for future links, based on the respective metric. This can guide efforts in network growth strategies, community detection, or even in understanding underlying structural tendencies of the network.
+
+In summary, the find_top_missing_links function is a tool for identifying potential areas of growth or evolution within a network by highlighting the node pairs most likely to connect according to different network metrics.
