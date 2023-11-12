@@ -8,6 +8,8 @@ networkx = "*"
 matplotlib = "*"
 numpy = "*"
 ipykernel = "*"
+pandas = "*"
+scipy = "*"
 
 [requires]
 python_version = "3.10"
