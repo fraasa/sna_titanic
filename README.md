@@ -132,3 +132,45 @@ PA (Preferential Attachment): Implies that nodes with high degrees (many connect
 Top Candidates for New Links: The top 5 pairs for each metric represent the most promising candidates for future links, based on the respective metric. This can guide efforts in network growth strategies, community detection, or even in understanding underlying structural tendencies of the network.
 
 In summary, the find_top_missing_links function is a tool for identifying potential areas of growth or evolution within a network by highlighting the node pairs most likely to connect according to different network metrics.
+
+
+## week 9 
+### Objective:
+This week objective is to manually construct a function to program the preferential attachment model, calculate the average degree of the network, determine a comparable average degree parameter for a random graph, and perform an analytical comparison between the preferential attachment graph and the random graph across various network characteristics such as clustering, degree distribution, and centrality measures.
+
+
+### Preferential Attachment
+
+The process begins with the `preferential_attachment` function, which takes three parameters: `G`, the existing graph; `m`, the number of edges each new node should create; and `new_nodes`, the number of new nodes to add to the graph. Inside the function, for each new node, we determine the probability of connecting to each existing node based on the current degree distribution of the graph. This is achieved by calculating the total degree of the graph and then assigning a probability of being chosen to each node that is proportional to its degree.
+
+With these probabilities, we select `m` unique existing nodes to form connections with the new node. These selections are made using a weighted random choice, where nodes with higher degrees have a higher chance of being selected, simulating the "rich-get-richer" phenomenon. Once the nodes are selected, a new node is added to the graph with edges connecting it to the chosen `m` nodes.
+
+After defining this function,the average degree of this initial graph is then calculated and printed. This average degree represents the average number of connections per node before the preferential attachment process begins.
+
+Then the code applies the preferential attachment model to the graph using the specified parameters for the number of new nodes and edges each new node will create. After the new nodes have been added, the average degree of the graph is recalculated to reflect the changes made by the preferential attachment process. This new average degree is likely to be higher than the initial average degree, reflecting the added connections.
+
+
+
+...
+
+**Graphs Characteristics:**
+
+We've developed a function called `graph_characteristics` that extracts various key metrics of the graphs' structures. This function delves into our graphs and computes the average clustering coefficient and transitivity, which inform us about the overall tendency of nodes to cluster together. It also determines the degree distribution, giving us insight into how connections in the graph are distributed among nodes. When dealing with a graph that might not be fully connected, our function smartly focuses on the largest connected component, calculating both the average shortest path length and the diameter, which reflect the 'small-world' nature of the network. Lastly, it evaluates the degree centrality distribution, highlighting the most influential nodes within the network. By applying this function to both our preferential attachment and random graphs, we can compare their characteristics, thus gaining a deeper understanding of the inherent structural differences between these two types of networks. Let's see what we have found. 
+
+**Preferential Attachment Graph Characteristics:**
+- Average clustering coefficient: 0.247
+- Transitivity: 0.184
+- Average shortest path length: 2.164 (calculated for the largest connected component)
+- Diameter: 4 (calculated for the largest connected component)
+
+**Random Graph Characteristics:**
+- Average clustering coefficient: 0.078
+- Transitivity: 0.079
+- Average shortest path length: 2.239 (calculated for the largest connected component)
+- Diameter: 4 (calculated for the largest connected component)
+
+The average clustering coefficient and transitivity are higher in the PA graph than in the random graph, which is typical for networks that have developed under a preferential attachment mechanism. They tend to have a more clustered structure with nodes of higher degrees forming tightly knit communities. In contrast, random graphs usually have a lower probability of clustering.
+
+The average shortest path length is slightly lower in the PA graph, indicating that, on average, nodes are more directly connected to each other than in the random graph. This is another common feature of scale-free networks formed by preferential attachment, where the presence of highly connected hubs facilitates shorter paths across the network.
+
+The diameter, which is the longest shortest path in the network, is the same for both graphs. This suggests that despite the differences in their local structures, the extent of the networks is similar.
