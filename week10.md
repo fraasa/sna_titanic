@@ -8,4 +8,7 @@ The first scenario we considered was obatined by setting Jack and Rose, the two 
 ### Scenario 2
 For the second scenario we considered a random initialization with an higher value for q and lower for s, and we noticed that already at the first iteration a large portion of the nodes in the graph already adopted the innovation; this happened due to the randomic nature of the initialization.
 ### Scenario 3
+The aim of this scenario was to obtain a widespread adoption of the 'innovation': in order to achieve that we set higher parameters both for s and q and we decided to set as the outbreak of the innovation the two most central nodes, Rose and Jack. As a matter of fact, already at the first iteration we obtained only two red nodes, so only two characters didn't adopt the innovation.
+### Scenario 4
+For the last scenario we mainly wanted to prove the correctness of our code: hence we set both s and q equal to zero and, as expected, we obtained a graph with all red nodes meaning that the innovation wasn't spread at all since no node could either self-innovate nor meet an already 'innovated' node
 
